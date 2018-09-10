@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ShoppingListData
 {
-    public class GroceryListItem : IngredientBase
+    public class ShoppingListItem : IngredientBase
     {
-        public GroceryListItem(int amount, string name)
+        public ShoppingListItem(double amount, string name)
             :base(name)
         {
-
+            this.Amount = amount;
         }
     }
 }

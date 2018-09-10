@@ -10,27 +10,20 @@ namespace ShoppingListData
     {        
         //private List<Ingredient> _recipeList;
         private readonly Dictionary<string, Ingredient> _recipeList;
-        private string _name;
-       
+
+        public string Name { get; private set; }
+
         public Recipe(string name)
         {
-            //_recipeList = new List<Ingredient>();
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("You must provide a name for this recipe");
+            }
+
             _recipeList = new Dictionary<string, Ingredient>();
             this.Name = name;
         }
-
-        public string Name
-        {
-            get { return _name; }
-
-            set
-            {
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    _name = value;
-                }
-            }                
-        }
+       
 
         public bool AddIngredient(Ingredient ingredient)
         {
@@ -46,7 +39,7 @@ namespace ShoppingListData
        
         public void ModifyIngredient(Ingredient ingredient)
         {
-
+            
         }
 
         public bool RemoveIngredient(string ingredient)

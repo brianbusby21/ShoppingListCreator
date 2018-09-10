@@ -9,9 +9,9 @@ namespace ShoppingListData
     public class Ingredient : IngredientBase
     {
 
-        public Ingredient(int amount, string name)
+        public Ingredient(double amount, string name)
             :base(name)
-        {
+        {            
             this.Amount = amount;
         }
             
