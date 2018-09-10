@@ -10,19 +10,38 @@ namespace ShoppingListData
     {        
         //private List<Ingredient> _recipeList;
         private readonly Dictionary<string, Ingredient> _recipeList;
-
-        public string Name { get; private set; }
-
+        private string _name;
+       
         public Recipe(string name)
         {
             //_recipeList = new List<Ingredient>();
             _recipeList = new Dictionary<string, Ingredient>();
             this.Name = name;
         }
-        
-        public void AddIngredient(Ingredient ingredient)
+
+        public string Name
         {
-            _recipeList.Add(ingredient.Name, ingredient);           
+            get { return _name; }
+
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    _name = value;
+                }
+            }                
+        }
+
+        public bool AddIngredient(Ingredient ingredient)
+        {
+            if (ingredient != null)
+            {
+                _recipeList.Add(ingredient.Name, ingredient);
+                return true;
+            }
+            //No ingredient object
+            return false;
+                       
         }
        
         public void ModifyIngredient(Ingredient ingredient)
@@ -30,9 +49,18 @@ namespace ShoppingListData
 
         }
 
-        public void RemoveIngredient(string ingredient)
+        public bool RemoveIngredient(string ingredient)
         {
-
+            if (!string.IsNullOrWhiteSpace(ingredient))
+            {
+                if (_recipeList.ContainsKey(ingredient))
+                {
+                    _recipeList.Remove(ingredient);
+                    return true;
+                }
+            }
+            //no ingredient passed or does not exist in recipe
+            return false;                                             
         }
 
         public void DisplayRecipe()
