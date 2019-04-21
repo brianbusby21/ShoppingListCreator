@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListCreatorUI", "ShoppingListCreatorUI\ShoppingListCreatorUI.csproj", "{678B11C9-BD18-4508-ADDA-5714A993B45D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListUI", "ShoppingListCreatorUI\ShoppingListUI.csproj", "{678B11C9-BD18-4508-ADDA-5714A993B45D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListData", "ShoppingListData\ShoppingListData.csproj", "{3113DBEC-50E6-4862-88FD-1CC9C4BFE707}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListSoftware", "ShoppingListData\ShoppingListSoftware.csproj", "{3113DBEC-50E6-4862-88FD-1CC9C4BFE707}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingListConsole", "ShoppingListConsole\ShoppingListConsole.csproj", "{96F22A92-B997-46DB-9CE1-1C461FED7A99}"
 EndProject
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38467905-C26A-45FC-8837-3DAE6D44B8B6}
 	EndGlobalSection
 EndGlobal

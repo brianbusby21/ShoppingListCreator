@@ -96,9 +96,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingListData\ShoppingListData.csproj">
+    <ProjectReference Include="..\ShoppingListData\ShoppingListSoftware.csproj">
       <Project>{3113dbec-50e6-4862-88fd-1cc9c4bfe707}</Project>
-      <Name>ShoppingListData</Name>
+      <Name>ShoppingListSoftware</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

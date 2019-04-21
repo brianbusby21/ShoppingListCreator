@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96F22A92-B997-46DB-9CE1-1C461FED7A99}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{3113DBEC-50E6-4862-88FD-1CC9C4BFE707}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShoppingListConsole</RootNamespace>
-    <AssemblyName>ShoppingListConsole</AssemblyName>
+    <RootNamespace>ShoppingListData</RootNamespace>
+    <AssemblyName>ShoppingListData</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Business\Calculations.cs" />
+    <Compile Include="DataClasses\Enumeration.cs" />
+    <Compile Include="DataClasses\Ingredient.cs" />
+    <Compile Include="DataClasses\IngredientBase.cs" />
+    <Compile Include="DataClasses\Recipe.cs" />
+    <Compile Include="DataClasses\ShoppingList.cs" />
+    <Compile Include="DataClasses\UnitType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShoppingListData\ShoppingListSoftware.csproj">
-      <Project>{3113dbec-50e6-4862-88fd-1cc9c4bfe707}</Project>
-      <Name>ShoppingListSoftware</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
