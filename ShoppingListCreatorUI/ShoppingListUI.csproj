@@ -96,7 +96,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingListData\ShoppingListSoftware.csproj">
+    <ProjectReference Include="..\ShoppingListSoftware\ShoppingListSoftware.csproj">
       <Project>{3113dbec-50e6-4862-88fd-1cc9c4bfe707}</Project>
       <Name>ShoppingListSoftware</Name>
     </ProjectReference>

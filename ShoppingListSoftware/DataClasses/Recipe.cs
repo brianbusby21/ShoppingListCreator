@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingListData
+namespace ShoppingListSoftware.DataClasses
 {
     public class Recipe
-    {        
-        //private List<Ingredient> _recipeList;
-        private readonly Dictionary<string, Ingredient> _recipeList;
+    {
+        //private readonly Dictionary<string, Ingredient> _recipeList;
+        private readonly List<Ingredient> _recipeList;
 
         public string Name { get; private set; }
 
@@ -20,16 +20,20 @@ namespace ShoppingListData
                 throw new ArgumentNullException("You must provide a name for this recipe");
             }
 
-            _recipeList = new Dictionary<string, Ingredient>();
+            _recipeList = new List<Ingredient>();
             this.Name = name;
         }
-       
+
+        public List<Ingredient> GetAllIngredients()
+        {
+            return _recipeList;
+        }
 
         public bool AddIngredient(Ingredient ingredient)
         {
             if (ingredient != null)
             {
-                _recipeList.Add(ingredient.Name, ingredient);
+                _recipeList.Add(ingredient);
                 return true;
             }
             //No ingredient object
@@ -46,10 +50,12 @@ namespace ShoppingListData
         {
             if (!string.IsNullOrWhiteSpace(ingredient))
             {
-                if (_recipeList.ContainsKey(ingredient))
+                foreach (var item in _recipeList)
                 {
-                    _recipeList.Remove(ingredient);
-                    return true;
+                    if (item.Name.ToLower() == ingredient)
+                    {
+                        _recipeList.Remove(item);
+                    }
                 }
             }
             //no ingredient passed or does not exist in recipe
@@ -58,9 +64,9 @@ namespace ShoppingListData
 
         public void DisplayRecipe()
         {
-            foreach (var item in _recipeList)
+            foreach (var ingredient in _recipeList)
             {
-                Console.WriteLine("{0}, {1}", item.Value.Amount, item.Key);
+                Console.WriteLine($"{ingredient.Amount} {ingredient.Unit} {ingredient.Name}");
             }
         }
 

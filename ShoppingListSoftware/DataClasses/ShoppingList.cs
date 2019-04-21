@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingListData
+namespace ShoppingListSoftware.DataClasses
 {
     public class ShoppingList
     {
-        //private List<Ingredient> _recipeList;
-        private readonly Dictionary<string, ShoppingListItem> _shoppingList;
-        private readonly Dictionary<string, Recipe> _recipeCollection;
+
+        private readonly List<Ingredient> _shoppingList;
+        private readonly List<Recipe> _recipeCollection;     
 
         public ShoppingList(string name)
         {
@@ -19,8 +19,8 @@ namespace ShoppingListData
                 throw new ArgumentNullException("You must provide a name for this Grocery List");
             }
 
-            _shoppingList = new Dictionary<string, ShoppingListItem>();
-            _recipeCollection = new Dictionary<string, Recipe>();
+            _shoppingList = new List<Ingredient>();
+            _recipeCollection = new List<Recipe>();
             this.Name = name;
         }
 
@@ -30,7 +30,7 @@ namespace ShoppingListData
         {
             if (recipe != null)
             {
-                _recipeCollection.Add(recipe.Name, recipe);
+                _recipeCollection.Add(recipe);
                 return true;
             }
             //No ingredient object
@@ -46,10 +46,12 @@ namespace ShoppingListData
         {
             if (!string.IsNullOrWhiteSpace(recipe))
             {
-                if (_recipeCollection.ContainsKey(recipe))
+                foreach (var item in _recipeCollection)
                 {
-                    _recipeCollection.Remove(recipe);
-                    return true;
+                    if (item.Name.ToLower() == recipe)
+                    {
+                        _recipeCollection.Remove(item);
+                    }
                 }
             }
             //no ingredient passed or does not exist in recipe
@@ -58,7 +60,25 @@ namespace ShoppingListData
 
         public void CreateShoppingtList()
         {
+            foreach (var recipe in _recipeCollection)
+            {
+                var tempList = recipe.GetAllIngredients();
 
+                foreach (var ingredient in tempList)
+                {
+                    _shoppingList.Add(ingredient);
+                }
+            }
+
+            Console.WriteLine("Shopping List Created");
+        }
+
+        public void DisplayShoppingList()
+        {
+            foreach (var ingredient in _shoppingList)
+            {
+                Console.WriteLine($"{ingredient.Amount} {ingredient.Unit} {ingredient.Name}");
+            }
         }
     }
 }
